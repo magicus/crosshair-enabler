@@ -11,12 +11,11 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Environment(EnvType.CLIENT)
 @Mixin(Hud.class)
 public abstract class CrosshairEnablerMixin {
-	@Redirect(
-			method = "extractCrosshair(Lnet/minecraft/client/gui/GuiGraphicsExtractor;Lnet/minecraft/client/DeltaTracker;)V",
-			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z")
-	)
-	private boolean enableCrosshair(CameraType cameraType) {
-		return !cameraType.isMirrored();
-	}
-
+    @Redirect(
+            method =
+                    "extractCrosshair(Lnet/minecraft/client/gui/GuiGraphicsExtractor;Lnet/minecraft/client/DeltaTracker;)V",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
+    private boolean enableCrosshair(CameraType cameraType) {
+        return !cameraType.isMirrored();
+    }
 }
