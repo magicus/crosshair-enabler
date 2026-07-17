@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "se.icus.mag.crosshairenabler.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "CrosshairEnablerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
