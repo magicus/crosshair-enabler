@@ -1,5 +1,7 @@
 # Crosshair Enabler
 
+![Logo](docs/logo.png)
+
 This is a Minecraft mod for Fabric that always displays the crosshair, even when in third-person view. The only exception is when viewing the player from the front, where the crosshair would not make sense. This makes it possible to actually play in third-person mode and e.g. place or break blocks, and not just get a temporary overview.
 
 This is a very minimalistic mod. No settings are required nor provided.

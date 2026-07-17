@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "crosshair-always",
+  "id": "crosshair-enabler",
   "version": "${mod_version}",
 
-  "name": "Crosshair Always",
+  "name": "Crosshair Enabler",
   "description": "Always display the crosshair, even in third-person view",
   "authors": [
     "magicus"
   ],
   "contact": {
-    "homepage": "https://github.com/magicus/crosshair-always",
-    "issues": "https://github.com/magicus/crosshair-always/issues",
-    "sources": "https://github.com/magicus/crosshair-always"
+    "homepage": "https://github.com/magicus/crosshair-enabler",
+    "issues": "https://github.com/magicus/crosshair-enabler/issues",
+    "sources": "https://github.com/magicus/crosshair-enabler"
   },
 
   "license": "LGPLv3",
-  "icon": "assets/crosshair-always/icon.png",
+  "icon": "assets/crosshair-enabler/icon.png",
 
   "environment": "client",
 
   "mixins": [
-    "crosshair-always.mixins.json"
+    "crosshairenabler.mixins.json"
   ],
 
   "depends": {
