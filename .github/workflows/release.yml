@@ -8,8 +8,8 @@ on:
 
 env:
   MOD_NAME: Crosshair Enabler
-  MODRINTH_ID: 'xxx'
-  CURSEFORGE_ID: 'yyy'
+  MODRINTH_ID: 'WQ12Rkie'
+  CURSEFORGE_ID: '1614389'
   JAVA_VERSION: 25
 
 jobs:
