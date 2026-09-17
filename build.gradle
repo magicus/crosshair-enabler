@@ -4,19 +4,27 @@ plugins {
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 }
 
-base {
-    archivesName = project.archives_base_name
-}
-version = project.mod_version
-group = project.maven_group
+ext.mod_version = "${project.mod_base_version}+${project.minecraft_version}"
+version = ext.mod_version
 
-tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = "UTF-8"
+processResources {
+    inputs.properties([
+        "mod_version": project.mod_version,
+        "supported_minecraft_versions": project.supported_minecraft_versions,
+        "loader_version": project.loader_version,
+    ])
+
+    filesMatching("fabric.mod.json") {
+        expand([
+            mod_version: project.mod_version,
+            supported_minecraft_versions: project.supported_minecraft_versions,
+            loader_version: project.loader_version,
+        ])
+    }
 }
 
 java {
@@ -25,26 +33,9 @@ java {
     }
 }
 
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}" }
-    }
-}
-
-processResources {
-    inputs.properties([
-        "loader_version": project.loader_version,
-        "mod_version": project.mod_version,
-        "supported_minecraft_versions": project.supported_minecraft_versions,
-    ])
-
-    filesMatching("fabric.mod.json") {
-        expand([
-            loader_version: project.loader_version,
-            mod_version: project.mod_version,
-            supported_minecraft_versions: project.supported_minecraft_versions,
-        ])
-    }
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release.set(java_version.toInteger())
 }
 
 spotless {
